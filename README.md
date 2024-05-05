@@ -55,19 +55,19 @@
 ```php
 composer require ghasedak/laravel
 ```    
-Composer is a dependency manager for PHP which allows you to declare the libraries your project depends on, and it will manage (install/update) them for you.  If you are not familiar with Composer, you can read its documentations and download it via [getcomposer.org](https://getcomposer.org/).
+Composer is a dependency manager for PHP which allows you to declare the libraries your project depends on, and it will manage (install/update) them for you.  If you are not familiar with Composer, you can read its documentation and download it via [getcomposer.org](https://getcomposer.org/).
 
 ## Update    
    Set this line to Composer.json file in your project:
     
     "ghasedak/laravel": "*"
     
-  Then run following command to update using composer
+  Then run the following command to update using the composer
     
 ```php
 composer update 
 ```
-Composer update the required packages on your local machine.
+Composer updates the required packages on your local machine.
  ## usage    
 To use the package, you need an API key. To get that you should have a [Ghasedak](https://ghasedak.me) account. Register and get your API key.
 <br>
@@ -93,7 +93,7 @@ $response = Ghasedak\Laravel\GhasedakFacade::SendSimple($receptor, $message, $li
  | Parameter | Required | Description | Type | Example |
  | --- | --- | --- | --- | --- |
  | message | Yes | Text to be sent | string | Hello, World! |
- | receptor |  Yes | The number of the recipient(s) of the message (seperated by comma `,`). | string | 09111111111 |
+ | receptor |  Yes | The number of the recipient(s) of the message (separated by comma `,`). | string | 09111111111 |
  | linenumber | No | The number of the sender of the message, which, if not specified, will be selected from your dedicated lines with a higher priority.**```(If you do not have a dedicated line, you must specify the linenumber)```** | string | 5000222 |
  | senddate | No | The exact date and time of sending the message based on Unix time, if not specified, the message will be sent instantly. | string | 1508144471 | | checkid | No | It is used to set a unique number for each SMS, and after sending the SMS, all the information of the sent message can be received with the `status` method. | string | 2071 |
      
@@ -110,12 +110,12 @@ $response = Ghasedak\Laravel\GhasedakFacade::SendSimple($receptor, $message, $li
 
  ## One-Time Passwords (OTP) 
 The One-Time-Password (OTP) Interface is used to perform a mobile authentication or to implement Two-Factor-Authentication (2FA).    
-You can pass up to 10 `param` to `Verify` method:
+You can pass up to 10 `param` to the `Verify` method:
 ```php
 $response = Ghasedak\Laravel\GhasedakFacade::setVerifyType(Ghasedak\Laravel\GhasedakFacade::VERIFY_MESSAGE_TEXT)
 ->Verify(
     "09xxxxxxxxx",  // receptor  
-    "my-template",  // name of the template which you've created in you account  
+    "my-template",  // name of the template which you've created in your account  
     "param1",       // parameters (supporting up to 10 parameters)   
     "param2",   
     "param3"
@@ -125,7 +125,7 @@ $response = Ghasedak\Laravel\GhasedakFacade::setVerifyType(Ghasedak\Laravel\Ghas
 | Parameter | Required | Description | Type | Example |
 | --- | --- | --- | --- | --- |
 | receptor |  Yes | The number of the recipient of the message. | string | 09111111111 |
-| type | Yes | Set `1` to send text message and `2` to send voice message. | int | Hello, World! |
+| type | Yes | Set `1` to send a text message and `2` to send a voice message. | int | Hello, World! |
 | template | Yes | The title of the template you created in your panel. | string | my-template |
 | checkid | No | It is used to set a unique number for each SMS, and after sending the SMS, all the information of the sent message can be received with the `status` method. | string | 2071 |
 | param1 | Yes | The values you enter (You must enter at least one parameter). | string | abcdef |
